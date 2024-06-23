@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
+import { ThemeProvider } from "./context/ThemeContext";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -16,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <ThemeProvider>
+        <body className="bg-gray-100 dark:bg-gray-900">{children}</body>
+      </ThemeProvider>
     </html>
   );
 }

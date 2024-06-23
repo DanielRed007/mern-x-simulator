@@ -1,5 +1,15 @@
+"use client";
+
+import { useState } from "react";
+
 import Link from "next/link";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+  Switch,
+} from "@headlessui/react";
 import {
   ArchiveBoxXMarkIcon,
   ChevronDownIcon,
@@ -7,11 +17,20 @@ import {
   Square2StackIcon,
   TrashIcon,
   UserCircleIcon,
+  UserIcon,
+  UserPlusIcon,
+  MagnifyingGlassCircleIcon,
+  EnvelopeIcon,
 } from "@heroicons/react/16/solid";
+import { useTheme } from "@/app/context/ThemeContext";
 
 export const Header = () => {
+  const { theme, toggleTheme } = useTheme();
+
+  const [enabled, setEnabled] = useState(false);
+
   return (
-    <header className="bg-white shadow">
+    <header className="bg-white dark:bg-black shadow">
       <div className="container mx-auto px-4 py-6 flex justify-between items-center">
         <div className="text-4xl font-bold text-gray-800">X!</div>
         <nav>
@@ -20,6 +39,19 @@ export const Header = () => {
               <Link className="text-gray-600 hover:text-gray-800" href="/">
                 Home
               </Link>
+            </li>
+            <li className="">
+              <Switch
+                checked={enabled}
+                onChange={setEnabled}
+                onClick={toggleTheme}
+                className="group relative flex h-7 w-14 cursor-pointer rounded-full bg-gray-400 p-1 transition-colors duration-200 ease-in-out focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white data-[checked]:bg-gray-700"
+              >
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none inline-block size-5 translate-x-0 rounded-full bg-white ring-0 shadow-lg transition duration-200 ease-in-out group-data-[checked]:translate-x-7"
+                />
+              </Switch>
             </li>
             <li>
               <div className="text-right">
@@ -39,7 +71,7 @@ export const Header = () => {
                         href="/login"
                         className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10"
                       >
-                        <PencilIcon className="size-4 fill-white/30" />
+                        <UserIcon className="size-4 fill-white/30" />
                         Login
                       </Link>
                     </MenuItem>
@@ -48,7 +80,7 @@ export const Header = () => {
                         href="/register"
                         className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10"
                       >
-                        <PencilIcon className="size-4 fill-white/30" />
+                        <UserPlusIcon className="size-4 fill-white/30" />
                         Register
                       </Link>
                     </MenuItem>
@@ -58,7 +90,7 @@ export const Header = () => {
                         href="/about"
                         className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10"
                       >
-                        <PencilIcon className="size-4 fill-white/30" />
+                        <MagnifyingGlassCircleIcon className="size-4 fill-white/30" />
                         About
                       </Link>
                     </MenuItem>
@@ -67,7 +99,7 @@ export const Header = () => {
                         href="/contact"
                         className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10"
                       >
-                        <PencilIcon className="size-4 fill-white/30" />
+                        <EnvelopeIcon className="size-4 fill-white/30" />
                         Contact
                       </Link>
                     </MenuItem>

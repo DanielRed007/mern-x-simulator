@@ -20,10 +20,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="about" className="py-20">
+        <section id="about" className="py-20 bg-white dark:bg-gray-300">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-gray-800">About Us</h2>
-            <p className="mt-4 text-gray-600">
+            <h2 className="text-3xl font-bold text-gray-900">About Us</h2>
+            <p className="mt-4 text-gray-900">
               We are a team of dedicated professionals committed to delivering
               quality services.
             </p>

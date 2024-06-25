@@ -15,7 +15,7 @@ const ThemeContext = createContext<any | null>(null);
 // Create a provider component
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [isToggled, setIsToggled] = useState(false);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     if (theme === "dark") {

@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import connectToDatabase from "../../../lib/mongoose";
-import User from "../../../models/user";
+import connectToDatabase from "../../lib/mongoose";
+import User from "../../models/user";
 
 const JWT_SECRET: string = process.env.JWT_SECRET || "";
 

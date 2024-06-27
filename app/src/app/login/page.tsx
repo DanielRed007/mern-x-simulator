@@ -1,10 +1,11 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Header } from "../components/shared/Header";
 import { Footer } from "../components/shared/Footer";
 
 export default function LoginForm() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,7 +25,7 @@ export default function LoginForm() {
     const data = await res.json();
 
     if (res.ok) {
-      alert("Login successful");
+      router.push("/dashboard");
     } else {
       alert(data.error);
     }

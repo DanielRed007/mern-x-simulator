@@ -6,7 +6,6 @@ import { Header } from "./components/shared/Header";
 import { Footer } from "./components/shared/Footer";
 import { HomeContactForm } from "./components/HomeContactForm";
 import { HomeTabsSection } from "./components/HomeTabsSection";
-import { HeroBanner } from "./components/shared/HeroBanner";
 
 type Item = {
   _id: string;
@@ -33,7 +32,20 @@ export default function HomePage() {
       <Header />
 
       <main>
-        <HeroBanner />
+        <section
+          id="hero"
+          className="bg-blue-500 dark:bg-blue-900 text-white py-20"
+        >
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-9xl font-bold">X! </h1>
+            <p className="mt-4 text-lg">
+              A social media for comments and stuff, Register Now!
+            </p>
+            <button className="mt-6 px-4 py-2 bg-white text-blue-500 font-semibold rounded hover:bg-gray-200">
+              <Link href="/about">Learn More</Link>
+            </button>
+          </div>
+        </section>
 
         <section id="about" className="py-20 bg-white dark:bg-gray-700">
           <div className="container mx-auto px-4 text-center">

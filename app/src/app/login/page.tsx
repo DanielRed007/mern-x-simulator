@@ -9,7 +9,7 @@ export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e: any) => {
+  const handleLogin = async (e: any) => {
     e.preventDefault();
 
     const res = await fetch("/api/auth", {
@@ -20,11 +20,12 @@ export default function LoginForm() {
       body: JSON.stringify({ email, password, action: "login" }),
     });
 
-    console.log({ res });
-
     const data = await res.json();
 
-    if (res.ok) {
+    const { token } = data;
+
+    if (token) {
+      localStorage.setItem("token", token);
       router.push("/dashboard");
     } else {
       alert(data.error);
@@ -36,7 +37,7 @@ export default function LoginForm() {
       <Header />
       <div className="flex-grow flex items-center justify-center bg-gray-200 dark:bg-gray-700">
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleLogin}
           className="max-w-md w-full bg-white p-8 rounded-lg shadow-md bg-gray-400 dark:bg-gray-800"
         >
           <div className="mb-4">

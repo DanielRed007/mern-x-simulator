@@ -1,23 +1,14 @@
-import { verifyToken } from "@/lib/auth";
+import { authMiddleware } from "@/app/middleware/authMiddleware";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const { authorization } = req.headers;
-
-  if (!authorization) {
-    return res.status(401).json({ error: "No token provided" });
-  }
-
-  try {
-    const token = authorization.split(" ")[1];
-    const decoded: any = verifyToken(token);
-    res
-      .status(200)
-      .json({ message: "This is a protected route", userId: decoded.userId });
-  } catch (error) {
-    res.status(401).json({ error: "Invalid token" });
-  }
+interface AuthRequest extends NextApiRequest {
+  user: any;
 }
+
+const handler = (req: AuthRequest, res: NextApiResponse) => {
+  res
+    .status(200)
+    .json({ message: "This is a protected route", user: req.user });
+};
+
+export default authMiddleware(handler);

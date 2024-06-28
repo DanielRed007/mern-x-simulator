@@ -1,5 +1,4 @@
-// src/ToggleContext.tsx
-"use client"; // This directive ensures that the file is treated as a client component
+"use client";
 
 import React, {
   createContext,
@@ -7,12 +6,17 @@ import React, {
   useContext,
   ReactNode,
   useEffect,
+  MouseEventHandler,
 } from "react";
 
-// Create a context
 const ThemeContext = createContext<any | null>(null);
 
-// Create a provider component
+interface ThemeContextProps {
+  isToggled: boolean;
+  toggleTheme: MouseEventHandler<HTMLButtonElement> | undefined;
+  theme: string;
+}
+
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [isToggled, setIsToggled] = useState(false);
   const [theme, setTheme] = useState("dark");
@@ -25,22 +29,19 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [theme]);
 
-  const toggleTheme = () => {
+  const toggleTheme = (): void => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  const toggle = () => {
-    setIsToggled((prevState) => !prevState);
-  };
+  const themeValues: ThemeContextProps = { isToggled, toggleTheme, theme };
 
   return (
-    <ThemeContext.Provider value={{ isToggled, toggle, toggleTheme }}>
+    <ThemeContext.Provider value={themeValues}>
       {children}
     </ThemeContext.Provider>
   );
 };
 
-// Custom hook to use the ToggleContext
 export const useTheme = () => {
   return useContext(ThemeContext);
 };

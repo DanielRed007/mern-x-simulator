@@ -7,15 +7,47 @@ import { Footer } from "./components/shared/Footer";
 import { HomeContactForm } from "./components/HomeContactForm";
 import { HomeTabsSection } from "./components/HomeTabsSection";
 import { HeroBanner } from "./components/shared/HeroBanner";
-
-type Item = {
-  _id: string;
-  name: string;
-  description: string;
-};
+import { ProfileCard } from "./components/shared/ProfileCard";
+import { Item } from "./types/item";
+import { Profile } from "./types/profile";
 
 export default function HomePage() {
   const [items, setItems] = useState<Item[]>([]);
+  const homeBannerProfiles: Profile[] = [
+    {
+      _id: "Ytsmy0PabmD2tEMUgIprvGh0",
+      name: "Aleister Crowley",
+      role: "Admin",
+      profileImg:
+        "https://pbs.twimg.com/profile_images/1308385514744098816/oDXuaci__400x400.jpg",
+      country: "USA",
+      followingCount: 4533,
+      followerCount: 2654,
+      tweetCount: 4795,
+    },
+    {
+      _id: "xmZiaHidR3ChY4AHYnwLGLpU",
+      name: "Eliphaz Levi",
+      role: "User",
+      profileImg:
+        "https://pbs.twimg.com/profile_images/1308385514744098816/oDXuaci__400x400.jpg",
+      country: "Australia",
+      followingCount: 4089,
+      followerCount: 1758,
+      tweetCount: 8317,
+    },
+    {
+      _id: "rt5XkCH5MyWdGcneNwxbOTbb",
+      name: "Hermes Trismegistus",
+      role: "Admin",
+      profileImg:
+        "https://pbs.twimg.com/profile_images/1308385514744098816/oDXuaci__400x400.jpg",
+      country: "Canada",
+      followingCount: 4460,
+      followerCount: 4789,
+      tweetCount: 9853,
+    },
+  ];
 
   useEffect(() => {
     fetch("/api/items")
@@ -44,6 +76,19 @@ export default function HomePage() {
               We are a team of dedicated professionals committed to delivering
               quality services.
             </p>
+          </div>
+        </section>
+
+        <section id="about" className="py-20 bg-white dark:bg-blue-700">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-5xl font-bold text-gray-900 dark:text-gray-100">
+              Discover More!
+            </h2>
+            <div className="flex justify-between mt-7">
+              {homeBannerProfiles.map((profile, index) => (
+                <ProfileCard profile={profile} />
+              ))}
+            </div>
           </div>
         </section>
 

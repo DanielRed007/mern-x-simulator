@@ -19,7 +19,7 @@ export const ProfileCard: FC<Props> = ({ profile }) => {
             <p className="text-xs text-gray-400">{profile.role}</p>
           </div>
           <div className="items-center justify-center hidden sm:flex">
-            <div className="border-r mx-6 md:mx-12 h-16 border-gray-100"></div>
+            <div className="border-r mx-2 md:mx-3 h-16 border-gray-100"></div>
           </div>
           <div className="flex-1 flex flex-col justify-between space-y-6">
             <div className="flex justify-end space-x-5 items-center">
@@ -40,7 +40,8 @@ export const ProfileCard: FC<Props> = ({ profile }) => {
                 </svg>
                 <div className="text-xs font-medium">{profile.country}</div>
               </div>
-              <button className="p-2 from-blue-500 to-blue-400 bg-gradient-to-r rounded-full text-sm text-white px-6 transform transition-all duration-200 hover:to-purple-600">
+              {/* link to userProfile */}
+              <button className="p-2 from-blue-500 to-blue-400 bg-gradient-to-r rounded-full text-sm text-white px-6 transform transition-all duration-200 hover:to-blue-700">
                 Follow
               </button>
             </div>

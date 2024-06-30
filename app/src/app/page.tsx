@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useHome } from "./context/HomeContext";
 import { Header } from "./components/shared/Header";
 import { Footer } from "./components/shared/Footer";
 import { HomeContactForm } from "./components/HomeContactForm";
@@ -9,20 +9,9 @@ import { HeroBanner } from "./components/shared/HeroBanner";
 import { ProfileCard } from "./components/shared/ProfileCard";
 
 export default function HomePage() {
-  const [homeBannerProfiles, setProfiles] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { homeBannerProfiles, profilesLoading } = useHome();
 
-  useEffect(() => {
-    async function fetchProfiles() {
-      const res = await fetch("/api/profiles");
-      const data = await res.json();
-      setProfiles(data);
-      setLoading(false);
-    }
-    fetchProfiles();
-  }, []);
-
-  if (loading) {
+  if (profilesLoading) {
     return <div>Loading...</div>;
   }
 
@@ -51,7 +40,7 @@ export default function HomePage() {
               Discover More!
             </h2>
             <div className="flex justify-between mt-7">
-              {homeBannerProfiles.map((profile, index) => (
+              {homeBannerProfiles.map((profile: any, index: any) => (
                 <ProfileCard profile={profile} />
               ))}
             </div>

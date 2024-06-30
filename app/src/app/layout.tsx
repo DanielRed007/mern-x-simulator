@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { ThemeProvider } from "./context/ThemeContext";
+import { HomeProvider } from "./context/HomeContext";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeProvider>
-        <body className="bg-gray-100 dark:bg-gray-900">{children}</body>
+        <HomeProvider>
+          <body className="bg-gray-100 dark:bg-gray-900">{children}</body>
+        </HomeProvider>
       </ThemeProvider>
     </html>
   );

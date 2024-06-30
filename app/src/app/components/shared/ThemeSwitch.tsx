@@ -15,7 +15,6 @@ export const ThemeSwitch: FC<Props> = ({
   setEnabled,
   toggleTheme,
 }) => {
-  console.log(theme);
   return (
     <Fragment>
       {theme === "dark" ? (

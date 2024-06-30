@@ -19,8 +19,6 @@ export default function RegisterForm() {
       body: JSON.stringify({ email, password, action: "register" }),
     });
 
-    console.log({ res });
-
     const data = await res.json();
 
     if (res.ok) {

@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useHome } from "./context/HomeContext";
 import { Header } from "./components/shared/Header";
 import { Footer } from "./components/shared/Footer";

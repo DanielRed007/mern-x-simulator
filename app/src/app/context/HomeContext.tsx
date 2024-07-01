@@ -18,13 +18,14 @@ export const HomeProvider = ({ children }: { children: ReactNode }) => {
   const [homeBannerProfiles, setProfiles] = useState([]);
   const [profilesLoading, setProfilesLoading] = useState(true);
 
+  async function fetchProfiles() {
+    const res = await fetch("/api/profiles");
+    const data = await res.json();
+    setProfiles(data);
+    setProfilesLoading(false);
+  }
+
   useEffect(() => {
-    async function fetchProfiles() {
-      const res = await fetch("/api/profiles");
-      const data = await res.json();
-      setProfiles(data);
-      setProfilesLoading(false);
-    }
     fetchProfiles();
   }, []);
 

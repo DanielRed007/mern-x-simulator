@@ -3,8 +3,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Header } from "../components/shared/Header";
 import { Footer } from "../components/shared/Footer";
+import LoginForm from "../components/shared/LoginForm";
 
-export default function LoginForm() {
+export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,37 +37,13 @@ export default function LoginForm() {
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
       <div className="flex-grow flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-        <form
-          onSubmit={handleLogin}
-          className="max-w-md w-full bg-white p-8 rounded-lg shadow-md bg-gray-400 dark:bg-gray-800"
-        >
-          <div className="mb-4">
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          <div className="mb-6">
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-          >
-            Login
-          </button>
-        </form>
+        <LoginForm
+          email={email}
+          password={password}
+          setEmail={setEmail}
+          setPassword={setPassword}
+          handleLogin={handleLogin}
+        />
       </div>
       <Footer />
     </div>

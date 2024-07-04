@@ -6,12 +6,13 @@ import { Footer } from "./components/shared/Footer";
 import { HomeContactForm } from "./components/HomeContactForm";
 import { HeroBanner } from "./components/shared/HeroBanner";
 import { ProfileCard } from "./components/shared/ProfileCard";
+import Loader from "./components/shared/Loader";
 
 export default function HomePage() {
   const { homeBannerProfiles, profilesLoading } = useHome();
 
   if (profilesLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (

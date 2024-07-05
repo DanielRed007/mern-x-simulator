@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useHome } from "./context/HomeContext";
 import { Header } from "./components/shared/Header";
 import { Footer } from "./components/shared/Footer";
@@ -10,6 +11,8 @@ import Loader from "./components/shared/Loader";
 
 export default function HomePage() {
   const { homeBannerProfiles, profilesLoading } = useHome();
+
+  useEffect(() => {}, []);
 
   if (profilesLoading) {
     return <Loader />;

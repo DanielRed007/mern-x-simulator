@@ -1,38 +1,28 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import jwt from "jsonwebtoken";
+import { Fragment, useEffect } from "react";
 import withAuth from "../components/auth/Authorized";
-import Alert from "../components/shared/Alert";
 import { DashboardHeader } from "../components/shared/DashboardHeader";
-
-const JWT_SECRET = "the_secrets_that_you_keep_when_you_talking_in_your_sleep";
+import useAlert from "../hooks/widgets/useAlert";
+import Alert from "../components/shared/Alert";
+import useUserAuth from "../hooks/util/useUserAuth";
 
 function Dashboard() {
-  const router = useRouter();
-  const [showAlert, setShowAlert] = useState(false);
-
-  const handleShowAlert = () => {
-    setShowAlert(true);
-    setTimeout(() => setShowAlert(false), 5000);
-  };
+  const { logoutUser, userToken } = useUserAuth();
+  const { showAlert, handleShowAlert, setShowAlert } = useAlert(5000);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-
+    const token = userToken();
     if (token) {
-      const expired = jwt.verify(token, JWT_SECRET);
       handleShowAlert();
     } else {
-      localStorage.removeItem("token");
-      router.push("/login");
+      logoutUser();
     }
   }, []);
 
   return (
     <Fragment>
-      <DashboardHeader />
+      <DashboardHeader logoutUser={logoutUser} />
 
       {showAlert && (
         <Alert

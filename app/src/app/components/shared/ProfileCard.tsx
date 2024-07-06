@@ -1,5 +1,5 @@
 import { Profile } from "@/app/types/profile";
-import React, { FC, Fragment } from "react";
+import { FC, Fragment } from "react";
 
 interface Props {
   profile: Profile;

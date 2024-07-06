@@ -1,13 +1,11 @@
 "use client";
 
-import React, {
+import {
   createContext,
   useState,
   useContext,
   ReactNode,
   useEffect,
-  MouseEventHandler,
-  FC,
 } from "react";
 
 const HomeContext = createContext<any | null>(null);

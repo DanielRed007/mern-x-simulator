@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { Metadata } from "next";
 import { ThemeProvider } from "./context/ThemeContext";
 import { HomeProvider } from "./context/HomeContext";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">

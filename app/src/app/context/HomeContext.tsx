@@ -1,5 +1,6 @@
 "use client";
 
+import { apiHandler } from "@/lib/api/api-handler";
 import {
   createContext,
   useState,
@@ -17,8 +18,13 @@ export const HomeProvider = ({ children }: { children: ReactNode }) => {
   const [profilesLoading, setProfilesLoading] = useState(true);
 
   async function fetchProfiles() {
-    const res = await fetch("/api/profiles");
-    const data = await res.json();
+    const response = await apiHandler({
+      endpoint: "/api/profiles",
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const data = await response.json();
     setProfiles(data);
     setProfilesLoading(false);
   }

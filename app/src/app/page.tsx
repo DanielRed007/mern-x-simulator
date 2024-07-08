@@ -43,9 +43,13 @@ export default function HomePage() {
               Discover More!
             </h2>
             <div className='flex justify-between mt-7'>
-              {homeBannerProfiles.map((profile: any, index: any) => (
-                <ProfileCard profile={profile} />
-              ))}
+              {homeBannerProfiles.length > 0 ? (
+                homeBannerProfiles.map((profile: any, index: any) => (
+                  <ProfileCard profile={profile} />
+                ))
+              ) : (
+                <Loader />
+              )}
             </div>
           </div>
         </section>

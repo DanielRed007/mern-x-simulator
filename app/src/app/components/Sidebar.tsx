@@ -1,5 +1,6 @@
 // components/Sidebar.js
 import { useState } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,49 +10,48 @@ export default function Sidebar() {
   };
 
   return (
-    <div className='flex'>
+    <div className='flex shadow-lg'>
       <div
         className={`fixed inset-y-0 left-0 w-64 bg-gray-800 text-white transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out`}
+        } transition-transform duration-300 ease-in-out shadow-lg`}
       >
-        <div className='p-4'>
-          <div className='flex-1 p-4 mr-9'>
-            <button
+        <div className='p-4 mt-7'>
+          <div className='flex items-center space-x-4 mb-7'>
+            <h1 className='text-5xl font-bold mt-7'>X!</h1>
+            <ChevronLeftIcon
               onClick={toggleSidebar}
-              className='px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none'
-            >
-              {isOpen ? "Close Sidebar" : "Open Sidebar"}
-            </button>
+              className='w-9 h-9 mt-7 cursor-pointer'
+            />
           </div>
-          <h1 className='text-2xl font-bold'>Sidebar</h1>
-          <ul className='mt-4'>
-            <li className='mt-2'>
-              <a href='#' className='hover:underline'>
-                Item 1
+          <div className='flex-grow border-t border-gray-400 my-4'></div>
+          <ul className='space-y-4'>
+            <li>
+              <a href='#' className='hover:underline block px-2'>
+                Tweets
               </a>
             </li>
-            <li className='mt-2'>
-              <a href='#' className='hover:underline'>
-                Item 2
+            <li>
+              <a href='#' className='hover:underline block px-2'>
+                Subscriptions
               </a>
             </li>
-            <li className='mt-2'>
-              <a href='#' className='hover:underline'>
-                Item 3
+            <li>
+              <a href='#' className='hover:underline block px-2'>
+                Followers
               </a>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className='flex-1 p-4 mr-9'>
-        <button
-          onClick={toggleSidebar}
-          className='px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none'
-        >
-          {isOpen ? "Close Sidebar" : "Open Sidebar"}
-        </button>
+      <div className='flex-1 p-4'>
+        {!isOpen && (
+          <ChevronRightIcon
+            onClick={toggleSidebar}
+            className='w-9 h-9 cursor-pointer text-white'
+          />
+        )}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import connectToDatabase from "../../lib/mongoose";
-import User from "../../models/user";
+import UserSchema from "../../models/user";
 
 const JWT_SECRET: string = process.env.JWT_SECRET || "";
 
@@ -18,7 +18,10 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       try {
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const user = await User.create({ email, password: hashedPassword });
+        const user = await UserSchema.create({
+          email,
+          password: hashedPassword,
+        });
 
         res.status(201).json({ message: "User registered successfully", user });
       } catch (error: any) {
@@ -26,7 +29,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       }
     } else if (action === "login") {
       try {
-        const user = await User.findOne({ email });
+        const user = await UserSchema.findOne({ email });
 
         if (!user) {
           return res.status(404).json({ error: "User not found" });

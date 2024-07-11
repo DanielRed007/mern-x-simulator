@@ -1,6 +1,7 @@
 // components/Sidebar.js
 import { useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
+import Link from "next/link";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,22 +25,31 @@ export default function Sidebar() {
               className='w-9 h-9 mt-7 cursor-pointer'
             />
           </div>
-          <div className='flex-grow border-t border-gray-400 my-4'></div>
+          <div className='block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white'></div>
           <ul className='space-y-4'>
             <li>
-              <a href='#' className='hover:underline block px-2'>
+              <Link
+                className='block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white'
+                href='/dashboard'
+              >
                 Tweets
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#' className='hover:underline block px-2'>
+              <Link
+                className='block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white'
+                href='/dashboard/subscriptions'
+              >
                 Subscriptions
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#' className='hover:underline block px-2'>
+              <Link
+                className='block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white'
+                href='/dashboard/followers'
+              >
                 Followers
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

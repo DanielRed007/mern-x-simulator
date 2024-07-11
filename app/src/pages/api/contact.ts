@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Profile } from "@/app/types/profile";
 import connectToDatabase from "@/lib/mongoose";
-import ProfileSchema from "../../models/profile";
+import ContactSchema from "../../models/contact";
 
 export default async function handler(
   req: NextApiRequest,
@@ -10,10 +10,14 @@ export default async function handler(
   await connectToDatabase();
 
   if (req.method === "POST") {
-    const { action } = req.body;
+    const { name, email, message, action } = req.body;
 
     if (action === "send request") {
-      const profiles: Profile[] = await ProfileSchema.find();
+      const profiles: Profile[] = await ContactSchema.find();
+
+      await ContactSchema.create({ name, email, message });
+
+      res.status(201).json({ message: "Contact Request successfully" });
 
       if (profiles) {
         res.status(200).json(profiles);

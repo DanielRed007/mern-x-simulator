@@ -1,48 +1,55 @@
 "use client";
 
-import { Fragment, useEffect } from "react";
-import withAuth from "../components/auth/Authorized";
-import { DashboardHeader } from "../components/shared/DashboardHeader";
-import useAlert from "../hooks/widgets/useAlert";
-import Alert from "../components/shared/Alert";
-import useUserAuth from "../hooks/util/useUserAuth";
-import { Footer } from "../components/shared/Footer";
-import Sidebar from "../components/Sidebar";
+import { useState } from "react";
 
 function Dashboard() {
-  const { logoutUser, userToken } = useUserAuth();
-  const { showAlert, handleShowAlert, setShowAlert } = useAlert(5000);
+  const [tweets, setTweets] = useState([
+    { id: 1, content: "This is the first tweet!" },
+    { id: 2, content: "This is the second tweet!" },
+  ]);
 
-  useEffect(() => {
-    const token = userToken();
-    if (token) {
-      handleShowAlert();
-    } else {
-      logoutUser();
+  const [newTweet, setNewTweet] = useState("");
+
+  const handleAddTweet = (e: any) => {
+    e.preventDefault();
+    if (newTweet.trim() !== "") {
+      setTweets([
+        ...tweets,
+        { id: tweets.length + 1, content: newTweet.trim() },
+      ]);
+      setNewTweet("");
     }
-  }, []);
+  };
 
   return (
-    <div className='flex flex-col min-h-screen'>
-      <DashboardHeader logoutUser={logoutUser} />
-      <div className='flex flex-1'>
-        <Sidebar />
-        <main className='flex-1 p-4'>
-          {showAlert && (
-            <Alert
-              message='You Are Logged In'
-              duration={3000}
-              onClose={() => setShowAlert(false)}
-            />
-          )}
-          <div className='desired-container'>
-            {/* Your main content goes here */}
+    <div className='container mx-auto px-7 py-6'>
+      <h2 className='text-2xl font-bold mb-4'>Tweets</h2>
+      <form onSubmit={handleAddTweet} className='mb-4'>
+        <textarea
+          className='w-full p-2 border rounded-lg mb-2'
+          placeholder="What's happening?"
+          value={newTweet}
+          onChange={(e) => setNewTweet(e.target.value)}
+        />
+        <button
+          type='submit'
+          className='bg-blue-500 text-white px-4 py-2 rounded-lg'
+        >
+          Tweet
+        </button>
+      </form>
+      <div className='space-y-4'>
+        {tweets.map((tweet) => (
+          <div
+            key={tweet.id}
+            className='p-4 border rounded-lg bg-white shadow-sm'
+          >
+            {tweet.content}
           </div>
-        </main>
+        ))}
       </div>
-      <Footer />
     </div>
   );
 }
 
-export default withAuth(Dashboard);
+export default Dashboard;

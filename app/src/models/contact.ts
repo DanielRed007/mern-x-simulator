@@ -9,12 +9,12 @@ const ContactSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, "Please provide an email"],
-    unique: true,
+    unique: false,
   },
   message: {
     type: String,
     required: [true, "Please provide an message"],
-    unique: true,
+    unique: false,
   },
 });
 

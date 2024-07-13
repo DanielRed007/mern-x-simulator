@@ -22,7 +22,7 @@ function Dashboard() {
   };
 
   return (
-    <div className='container mx-auto px-7 py-6'>
+    <div className='container mx-auto px-7 py-6 dark:bg-gray-400'>
       <h2 className='text-2xl font-bold mb-4'>Tweets</h2>
       <form onSubmit={handleAddTweet} className='mb-4'>
         <textarea

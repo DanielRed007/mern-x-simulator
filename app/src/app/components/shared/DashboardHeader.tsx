@@ -8,9 +8,9 @@ interface DashBoardProps {
 
 export const DashboardHeader: FC<DashBoardProps> = ({ logoutUser }) => {
   return (
-    <div className='w-full bg-gray-800'>
+    <div className='w-full dark:bg-blue-700'>
       <div className='container mx-auto px-4 flex justify-between items-center'>
-        <nav className='flex-no-wrap relative flex w-full items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-gray-800 lg:flex-wrap lg:justify-start lg:py-4'>
+        <nav className='flex-no-wrap relative flex w-full items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-blue-700 lg:flex-wrap lg:justify-start lg:py-4'>
           <div className='flex w-full flex-wrap items-center justify-between px-3'>
             <div
               className='!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto'
@@ -38,11 +38,10 @@ export const DashboardHeader: FC<DashBoardProps> = ({ logoutUser }) => {
                   <MenuItem>
                     <button
                       onClick={logoutUser}
-                      className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10'
+                      className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 dark:bg-gray-800'
                     >
                       <ArrowUturnLeftIcon className='size-4 fill-white/30' />
                       Logout
-                      <kbd className='ml-auto hidden font-sans text-xs text-white/50 group-data-[focus]:inline'></kbd>
                     </button>
                   </MenuItem>
                 </MenuItems>

@@ -18,10 +18,10 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <ThemeProvider>
         <HomeProvider>
-          <body className="bg-gray-100 dark:bg-gray-900">{children}</body>
+          <body className='bg-gray-100 dark:bg-gray-900'>{children}</body>
         </HomeProvider>
       </ThemeProvider>
     </html>

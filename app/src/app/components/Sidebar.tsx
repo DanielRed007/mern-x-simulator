@@ -51,6 +51,14 @@ export default function Sidebar() {
                 Followers
               </Link>
             </li>
+            <li>
+              <Link
+                className='block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 hover:text-white'
+                href='/dashboard/profile'
+              >
+                Profile
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

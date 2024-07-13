@@ -27,7 +27,7 @@ function DashboardLayout({
   }, []);
 
   return (
-    <div className='flex flex-col min-h-screen'>
+    <div className='flex flex-col min-h-screen dark:bg-gray-800'>
       <DashboardHeader logoutUser={logoutUser} />
       <div className='flex flex-1'>
         <Sidebar />

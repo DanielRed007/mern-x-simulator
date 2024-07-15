@@ -1,5 +1,6 @@
 "use client";
 
+import { apiHandler } from "@/lib/api/api-handler";
 import { useState } from "react";
 
 function Dashboard() {
@@ -10,14 +11,22 @@ function Dashboard() {
 
   const [newTweet, setNewTweet] = useState("");
 
-  const handleAddTweet = (e: any) => {
+  const handleAddTweet = async (e: any) => {
     e.preventDefault();
-    if (newTweet.trim() !== "") {
-      setTweets([
-        ...tweets,
-        { id: tweets.length + 1, content: newTweet.trim() },
-      ]);
-      setNewTweet("");
+
+    const response = await apiHandler({
+      endpoint: "/api/tweet",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      requestBody: { newTweet, action: "send request" },
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("Tweet Created");
+    } else {
+      alert(data.error);
     }
   };
 

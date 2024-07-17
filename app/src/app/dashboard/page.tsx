@@ -14,11 +14,13 @@ function Dashboard() {
   const handleAddTweet = async (e: any) => {
     e.preventDefault();
 
+    const token = localStorage.getItem("token");
+
     const response = await apiHandler({
       endpoint: "/api/tweet",
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      requestBody: { newTweet, action: "send request" },
+      requestBody: { newTweet, token, action: "send request" },
     });
 
     const data = await response.json();

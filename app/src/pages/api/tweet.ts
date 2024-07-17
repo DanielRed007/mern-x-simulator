@@ -9,8 +9,8 @@ import jwt from "jsonwebtoken";
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   await connectToDatabase();
 
-  const { _id, userId, message, action } = req.body;
-  console.log(req);
+  const { token, newTweet, action } = req.body;
+
   if (req.method === "GET") {
     const tweets: Tweet[] = await TweetSchema.find();
 
@@ -24,30 +24,22 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       const JWT_SECRET: string = process.env.JWT_SECRET || "";
       const authHeader: any = req.headers.authorization;
 
-      //   if (!authHeader) {
-      //     return res.status(401).json({ message: "No token provided" }); // Unauthorized
-      //   }
-
-      const token = localStorage.getItem("token");
       if (!token) {
         return res.status(401).json({ message: "No token provided" }); // Unauthorized
       }
 
       const decoded: any = jwt.verify(token, JWT_SECRET);
-      const userId: any = decoded.id;
+      const userId: any = decoded.userId;
 
-      const user = await UserSchema.findById(userId).exec();
+      const user = await UserSchema.findById(userId);
 
       if (!user) {
         return res.status(404).json({ message: "User not found" }); // Not Found
       }
 
-      return res.status(200).json({ user });
-
       const response: Tweet = await TweetSchema.create({
-        _id,
         userId,
-        message,
+        message: newTweet,
       });
 
       if (response) {

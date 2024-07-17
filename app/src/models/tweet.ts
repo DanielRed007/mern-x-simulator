@@ -9,7 +9,7 @@ const TweetSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Types.ObjectId,
     required: [false, ""],
-    unique: true,
+    unique: false,
   },
   message: {
     type: String,

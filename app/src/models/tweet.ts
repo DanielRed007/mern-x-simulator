@@ -1,21 +1,24 @@
 import mongoose from "mongoose";
 
-const TweetSchema = new mongoose.Schema({
-  id: {
-    type: mongoose.Types.ObjectId,
-    required: [false, ""],
-    unique: true,
+const TweetSchema = new mongoose.Schema(
+  {
+    userId: {
+      type: mongoose.Types.ObjectId,
+      required: [false, ""],
+      unique: false,
+    },
+    message: {
+      type: String,
+      required: [false, ""],
+      unique: false,
+    },
   },
-  userId: {
-    type: mongoose.Types.ObjectId,
-    required: [false, ""],
-    unique: false,
-  },
-  message: {
-    type: String,
-    required: [false, ""],
-    unique: true,
-  },
-});
+  {
+    timestamps: {
+      createdAt: "createdAt",
+      updatedAt: "modifiedAt",
+    },
+  }
+);
 
 export default mongoose.models.Tweet || mongoose.model("Tweet", TweetSchema);

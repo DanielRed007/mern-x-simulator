@@ -4,6 +4,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { HomeProvider } from "./context/HomeContext";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { DashboardProvider } from "./context/DashboardContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,9 @@ export default function RootLayout({
     <html lang='en'>
       <ThemeProvider>
         <HomeProvider>
-          <body className='bg-gray-100 dark:bg-gray-900'>{children}</body>
+          <DashboardProvider>
+            <body className='bg-gray-100 dark:bg-gray-900'>{children}</body>
+          </DashboardProvider>
         </HomeProvider>
       </ThemeProvider>
     </html>

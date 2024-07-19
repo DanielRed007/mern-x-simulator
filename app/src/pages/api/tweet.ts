@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { authMiddleware } from "@/app/middleware/authMiddleware";
 import { Tweet } from "@/app/types/tweet";
 import connectToDatabase from "@/lib/mongoose";
 import TweetSchema from "../../models/tweet";

@@ -1,0 +1,93 @@
+[
+    {
+      "userId": "1",
+      "message": "Exploring the mysteries of the universe. #occult",
+      "createdAt": "2024-07-01T10:00:00Z",
+      "modifiedAt": "2024-07-01T10:00:00Z"
+    },
+    {
+      "userId": "1",
+      "message": "Embrace the unknown and seek enlightenment. #philosophy",
+      "createdAt": "2024-07-02T11:00:00Z",
+      "modifiedAt": "2024-07-02T11:00:00Z"
+    },
+    {
+      "userId": "2",
+      "message": "The journey of a thousand miles begins with one step. #inspiration",
+      "createdAt": "2024-07-03T12:00:00Z",
+      "modifiedAt": "2024-07-03T12:00:00Z"
+    },
+    {
+      "userId": "2",
+      "message": "Magic is the science and art of causing change to occur in conformity with will. #magic",
+      "createdAt": "2024-07-04T13:00:00Z",
+      "modifiedAt": "2024-07-04T13:00:00Z"
+    },
+    {
+      "userId": "3",
+      "message": "The ancient wisdom of Egypt still resonates today. #history",
+      "createdAt": "2024-07-05T14:00:00Z",
+      "modifiedAt": "2024-07-05T14:00:00Z"
+    },
+    {
+      "userId": "3",
+      "message": "Knowledge is power, and wisdom is the application of knowledge. #wisdom",
+      "createdAt": "2024-07-06T15:00:00Z",
+      "modifiedAt": "2024-07-06T15:00:00Z"
+    },
+    {
+      "userId": "1",
+      "message": "The mind is its own place, and in itself can make a heaven of hell, a hell of heaven. #mindfulness",
+      "createdAt": "2024-07-07T16:00:00Z",
+      "modifiedAt": "2024-07-07T16:00:00Z"
+    },
+    {
+      "userId": "2",
+      "message": "To dare is to know oneself. #courage",
+      "createdAt": "2024-07-08T17:00:00Z",
+      "modifiedAt": "2024-07-08T17:00:00Z"
+    },
+    {
+      "userId": "3",
+      "message": "The stars above us, govern our conditions. #astrology",
+      "createdAt": "2024-07-09T18:00:00Z",
+      "modifiedAt": "2024-07-09T18:00:00Z"
+    },
+    {
+      "userId": "1",
+      "message": "Every man and every woman is a star. #individuality",
+      "createdAt": "2024-07-10T19:00:00Z",
+      "modifiedAt": "2024-07-10T19:00:00Z"
+    },
+    {
+      "userId": "2",
+      "message": "Love is the law, love under will. #love",
+      "createdAt": "2024-07-11T20:00:00Z",
+      "modifiedAt": "2024-07-11T20:00:00Z"
+    },
+    {
+      "userId": "3",
+      "message": "The only thing we have to fear is fear itself. #fearless",
+      "createdAt": "2024-07-12T21:00:00Z",
+      "modifiedAt": "2024-07-12T21:00:00Z"
+    },
+    {
+      "userId": "1",
+      "message": "Do what thou wilt shall be the whole of the law. #freedom",
+      "createdAt": "2024-07-13T22:00:00Z",
+      "modifiedAt": "2024-07-13T22:00:00Z"
+    },
+    {
+      "userId": "2",
+      "message": "There is no religion higher than truth. #truth",
+      "createdAt": "2024-07-14T23:00:00Z",
+      "modifiedAt": "2024-07-14T23:00:00Z"
+    },
+    {
+      "userId": "3",
+      "message": "The best way to predict the future is to create it. #future",
+      "createdAt": "2024-07-15T09:00:00Z",
+      "modifiedAt": "2024-07-15T09:00:00Z"
+    }
+  ]
+  

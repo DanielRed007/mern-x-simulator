@@ -7,6 +7,7 @@ import {
   useContext,
   ReactNode,
   useEffect,
+  useCallback,
 } from "react";
 
 const DashboardContext = createContext<any | null>(null);
@@ -17,23 +18,33 @@ export const DashboardProvider = ({ children }: { children: ReactNode }) => {
   const [dashboardTweetsData, setDashboardTweetsData] = useState([]);
   const [dashboardLoading, setDashboardLoading] = useState(true);
 
-  async function fetchDashboardTweetsData() {
+  const fetchDashboardTweetsData = useCallback(async () => {
     const response = await apiHandler({
       endpoint: "/api/tweet",
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
 
-    const data = await response.json();
-    setDashboardTweetsData(data);
-    setDashboardLoading(false);
-  }
+    try {
+      if (response.ok) {
+        const data = await response.json();
+        setDashboardTweetsData(data);
+        setDashboardLoading(false);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
 
   useEffect(() => {
     fetchDashboardTweetsData();
   }, []);
 
-  const dashboardValues = { dashboardTweetsData, dashboardLoading };
+  const dashboardValues = {
+    dashboardTweetsData,
+    dashboardLoading,
+    fetchDashboardTweetsData,
+  };
 
   return (
     <DashboardContext.Provider value={dashboardValues}>

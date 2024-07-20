@@ -9,9 +9,9 @@ interface DashBoardProps {
 export const DashboardHeader: FC<DashBoardProps> = ({ logoutUser }) => {
   return (
     <div className='w-full dark:bg-blue-700'>
-      <div className='container mx-auto px-4 flex justify-between items-center'>
+      <div className='container mx-auto px-7 flex justify-between items-center'>
         <nav className='flex-no-wrap relative flex w-full items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-blue-700 lg:flex-wrap lg:justify-start lg:py-4'>
-          <div className='flex w-full flex-wrap items-center justify-between px-3'>
+          <div className='flex w-full flex-wrap items-center justify-between ml-7 px-7'>
             <div
               className='!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto'
               id='navbarSupportedContent1'

@@ -8,14 +8,15 @@ import {
   ReactNode,
   useEffect,
 } from "react";
+import { Profile } from "../types/profile";
 
 const HomeContext = createContext<any | null>(null);
 
 interface HomeContextProps {}
 
 export const HomeProvider = ({ children }: { children: ReactNode }) => {
-  const [homeBannerProfiles, setProfiles] = useState([]);
-  const [profilesLoading, setProfilesLoading] = useState(true);
+  const [homeBannerProfiles, setProfiles] = useState<Profile[]>([]);
+  const [profilesLoading, setProfilesLoading] = useState<boolean>(true);
 
   async function fetchProfiles() {
     const response = await apiHandler({

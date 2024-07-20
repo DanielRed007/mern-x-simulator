@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import TweetForm from "../components/TweetForm";
 import { useDashboard } from "../context/DashboardContext";
 import Loader from "../components/shared/Loader";
+import { Tweet } from "../types/tweet";
+import { TweetCard } from "../components/TweetCard";
 
 function Dashboard() {
   const { dashboardTweetsData, dashboardLoading } = useDashboard();
@@ -24,10 +26,13 @@ function Dashboard() {
       <h2 className='text-2xl font-bold mb-4'>Tweets</h2>
       <TweetForm />
       <div className='space-y-4'>
-        {dashboardTweetsData.map((tweet: any, index: number) => (
-          <div key={index} className='p-4 border rounded-lg bg-white shadow-sm'>
-            {tweet.message}
-          </div>
+        {dashboardTweetsData.map((tweet: Tweet, index: number) => (
+          <TweetCard
+            key={index}
+            message={tweet.message}
+            userId={tweet.userId}
+            createdAt={tweet.createdAt}
+          />
         ))}
       </div>
     </div>

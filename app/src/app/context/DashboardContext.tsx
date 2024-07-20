@@ -9,14 +9,15 @@ import {
   useEffect,
   useCallback,
 } from "react";
+import { Tweet } from "../types/tweet";
 
 const DashboardContext = createContext<any | null>(null);
 
 interface DashboardContextProps {}
 
 export const DashboardProvider = ({ children }: { children: ReactNode }) => {
-  const [dashboardTweetsData, setDashboardTweetsData] = useState([]);
-  const [dashboardLoading, setDashboardLoading] = useState(true);
+  const [dashboardTweetsData, setDashboardTweetsData] = useState<Tweet[]>([]);
+  const [dashboardLoading, setDashboardLoading] = useState<boolean>(true);
 
   const fetchDashboardTweetsData = useCallback(async () => {
     const response = await apiHandler({

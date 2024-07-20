@@ -3,10 +3,12 @@ import { apiHandler } from "@/lib/api/api-handler";
 import DialogModal from "./shared/DialogModal";
 import useAlert from "../hooks/widgets/useAlert";
 import Alert from "./shared/Alert";
+import { useDashboard } from "../context/DashboardContext";
 
 const TweetForm = () => {
   const [newTweet, setNewTweet] = useState("");
   const { showAlert, handleShowAlert, setShowAlert } = useAlert(5000);
+  const { fetchDashboardTweetsData } = useDashboard();
 
   const handleAddTweet = async (e: any) => {
     e.preventDefault();
@@ -24,6 +26,7 @@ const TweetForm = () => {
 
     if (response.ok) {
       handleShowAlert();
+      fetchDashboardTweetsData();
     } else {
       console.error(response);
     }

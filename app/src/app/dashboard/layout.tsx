@@ -31,7 +31,7 @@ function DashboardLayout({
       <DashboardHeader logoutUser={logoutUser} />
       <div className='flex flex-1'>
         <Sidebar />
-        <main className='flex-1 p-4'>
+        <main className='mx-auto mt-7'>
           {showAlert && (
             <Alert
               message='You Are Logged In'
@@ -39,7 +39,7 @@ function DashboardLayout({
               onClose={() => setShowAlert(false)}
             />
           )}
-          <div className='desired-container'>
+          <div>
             <main>{children}</main>
           </div>
         </main>

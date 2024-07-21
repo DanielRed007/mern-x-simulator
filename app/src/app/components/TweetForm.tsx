@@ -6,7 +6,7 @@ import Alert from "./shared/Alert";
 import { useDashboard } from "../context/DashboardContext";
 
 const TweetForm = () => {
-  const [newTweet, setNewTweet] = useState("");
+  const [newTweet, setNewTweet] = useState<string>("");
   const { showAlert, handleShowAlert, setShowAlert } = useAlert(5000);
   const { fetchDashboardTweetsData } = useDashboard();
 
@@ -27,6 +27,7 @@ const TweetForm = () => {
     if (response.ok) {
       handleShowAlert();
       fetchDashboardTweetsData();
+      setNewTweet("");
     } else {
       console.error(response);
     }

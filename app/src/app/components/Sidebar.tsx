@@ -63,7 +63,7 @@ export default function Sidebar() {
         </div>
       </div>
 
-      <div className='flex-1 p-4'>
+      <div className='p-4'>
         {!isOpen && (
           <ChevronRightIcon
             onClick={toggleSidebar}

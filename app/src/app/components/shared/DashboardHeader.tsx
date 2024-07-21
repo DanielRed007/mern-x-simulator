@@ -1,16 +1,22 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ArrowUturnLeftIcon, UserCircleIcon } from "@heroicons/react/16/solid";
+import { useTheme } from "@/app/context/ThemeContext";
+import { ThemeSwitch } from "./ThemeSwitch";
 
 interface DashBoardProps {
   logoutUser(): void;
 }
 
 export const DashboardHeader: FC<DashBoardProps> = ({ logoutUser }) => {
+  const { theme, toggleTheme } = useTheme();
+
+  const [enabled, setEnabled] = useState(false);
+
   return (
-    <div className='w-full dark:bg-blue-700'>
+    <div className='w-full bg-blue-700'>
       <div className='container mx-auto px-7 flex justify-between items-center'>
-        <nav className='flex-no-wrap relative flex w-full items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-blue-700 lg:flex-wrap lg:justify-start lg:py-4'>
+        <nav className='flex-no-wrap relative flex w-full items-center justify-between py-2 shadow-dark-mild lg:flex-wrap lg:justify-start lg:py-4'>
           <div className='flex w-full flex-wrap items-center justify-between ml-7 px-7'>
             <div
               className='!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto'
@@ -24,7 +30,14 @@ export const DashboardHeader: FC<DashBoardProps> = ({ logoutUser }) => {
               </span>
             </div>
 
-            <div className='relative flex items-center'>
+            <ThemeSwitch
+              theme={theme}
+              enabled={enabled}
+              setEnabled={setEnabled}
+              toggleTheme={toggleTheme}
+            />
+
+            <div className='relative flex items-center ml-5'>
               <Menu>
                 <MenuButton className='inline-flex items-center gap-2 rounded-md bg-gray-800 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-700 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white'>
                   <UserCircleIcon className='size-5 fill-white/60' />

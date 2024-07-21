@@ -22,7 +22,7 @@ function Dashboard() {
   }
 
   return (
-    <div className='container rounded ml-7 px-7 py-6 dark:bg-gray-400'>
+    <div className='container rounded ml-7 px-7 py-6 mb-7 dark:bg-gray-400'>
       <h2 className='text-2xl font-bold mb-4'>Tweets</h2>
       <TweetForm />
       <div className='space-y-4'>

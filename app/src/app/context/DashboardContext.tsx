@@ -37,7 +37,7 @@ export const DashboardProvider = ({ children }: { children: ReactNode }) => {
       if (response.ok) {
         const data = await response.json();
 
-        const filteredTweets = filterDashboardTweets(data);
+        const filteredTweets = filterDashboardTweets(data, userId);
 
         setDashboardTweetsData(filteredTweets);
         setDashboardLoading(false);

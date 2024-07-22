@@ -1,93 +1,156 @@
 [
-    {
-      "userId": "1",
+  {
       "message": "Exploring the mysteries of the universe. #occult",
-      "createdAt": "2024-07-01T10:00:00Z",
-      "modifiedAt": "2024-07-01T10:00:00Z"
-    },
-    {
-      "userId": "1",
+      "createdAt": "2024-07-01T10:00:00.000Z",
+      "modifiedAt": "2024-07-01T10:00:00.000Z",
+      "username": "user1"
+  },
+  {
       "message": "Embrace the unknown and seek enlightenment. #philosophy",
-      "createdAt": "2024-07-02T11:00:00Z",
-      "modifiedAt": "2024-07-02T11:00:00Z"
-    },
-    {
-      "userId": "2",
+      "createdAt": "2024-07-02T11:00:00.000Z",
+      "modifiedAt": "2024-07-02T11:00:00.000Z",
+      "username": "user2"
+  },
+  {
       "message": "The journey of a thousand miles begins with one step. #inspiration",
-      "createdAt": "2024-07-03T12:00:00Z",
-      "modifiedAt": "2024-07-03T12:00:00Z"
-    },
-    {
-      "userId": "2",
+      "createdAt": "2024-07-03T12:00:00.000Z",
+      "modifiedAt": "2024-07-03T12:00:00.000Z",
+      "username": "user3"
+  },
+  {
       "message": "Magic is the science and art of causing change to occur in conformity with will. #magic",
-      "createdAt": "2024-07-04T13:00:00Z",
-      "modifiedAt": "2024-07-04T13:00:00Z"
-    },
-    {
-      "userId": "3",
+      "createdAt": "2024-07-04T13:00:00.000Z",
+      "modifiedAt": "2024-07-04T13:00:00.000Z",
+      "username": "user4"
+  },
+  {
       "message": "The ancient wisdom of Egypt still resonates today. #history",
-      "createdAt": "2024-07-05T14:00:00Z",
-      "modifiedAt": "2024-07-05T14:00:00Z"
-    },
-    {
-      "userId": "3",
+      "createdAt": "2024-07-05T14:00:00.000Z",
+      "modifiedAt": "2024-07-05T14:00:00.000Z",
+      "username": "user5"
+  },
+  {
       "message": "Knowledge is power, and wisdom is the application of knowledge. #wisdom",
-      "createdAt": "2024-07-06T15:00:00Z",
-      "modifiedAt": "2024-07-06T15:00:00Z"
-    },
-    {
-      "userId": "1",
+      "createdAt": "2024-07-06T15:00:00.000Z",
+      "modifiedAt": "2024-07-06T15:00:00.000Z",
+      "username": "user6"
+  },
+  {
       "message": "The mind is its own place, and in itself can make a heaven of hell, a hell of heaven. #mindfulness",
-      "createdAt": "2024-07-07T16:00:00Z",
-      "modifiedAt": "2024-07-07T16:00:00Z"
-    },
-    {
-      "userId": "2",
+      "createdAt": "2024-07-07T16:00:00.000Z",
+      "modifiedAt": "2024-07-07T16:00:00.000Z",
+      "username": "user7"
+  },
+  {
       "message": "To dare is to know oneself. #courage",
-      "createdAt": "2024-07-08T17:00:00Z",
-      "modifiedAt": "2024-07-08T17:00:00Z"
-    },
-    {
-      "userId": "3",
+      "createdAt": "2024-07-08T17:00:00.000Z",
+      "modifiedAt": "2024-07-08T17:00:00.000Z",
+      "username": "user8"
+  },
+  {
       "message": "The stars above us, govern our conditions. #astrology",
-      "createdAt": "2024-07-09T18:00:00Z",
-      "modifiedAt": "2024-07-09T18:00:00Z"
-    },
-    {
-      "userId": "1",
+      "createdAt": "2024-07-09T18:00:00.000Z",
+      "modifiedAt": "2024-07-09T18:00:00.000Z",
+      "username": "user9"
+  },
+  {
       "message": "Every man and every woman is a star. #individuality",
-      "createdAt": "2024-07-10T19:00:00Z",
-      "modifiedAt": "2024-07-10T19:00:00Z"
-    },
-    {
-      "userId": "2",
+      "createdAt": "2024-07-10T19:00:00.000Z",
+      "modifiedAt": "2024-07-10T19:00:00.000Z",
+      "username": "user10"
+  },
+  {
       "message": "Love is the law, love under will. #love",
-      "createdAt": "2024-07-11T20:00:00Z",
-      "modifiedAt": "2024-07-11T20:00:00Z"
-    },
-    {
-      "userId": "3",
+      "createdAt": "2024-07-11T20:00:00.000Z",
+      "modifiedAt": "2024-07-11T20:00:00.000Z",
+      "username": "user11"
+  },
+  {
       "message": "The only thing we have to fear is fear itself. #fearless",
-      "createdAt": "2024-07-12T21:00:00Z",
-      "modifiedAt": "2024-07-12T21:00:00Z"
-    },
-    {
-      "userId": "1",
+      "createdAt": "2024-07-12T21:00:00.000Z",
+      "modifiedAt": "2024-07-12T21:00:00.000Z",
+      "username": "user12"
+  },
+  {
       "message": "Do what thou wilt shall be the whole of the law. #freedom",
-      "createdAt": "2024-07-13T22:00:00Z",
-      "modifiedAt": "2024-07-13T22:00:00Z"
-    },
-    {
-      "userId": "2",
+      "createdAt": "2024-07-13T22:00:00.000Z",
+      "modifiedAt": "2024-07-13T22:00:00.000Z",
+      "username": "user13"
+  },
+  {
       "message": "There is no religion higher than truth. #truth",
-      "createdAt": "2024-07-14T23:00:00Z",
-      "modifiedAt": "2024-07-14T23:00:00Z"
-    },
-    {
-      "userId": "3",
+      "createdAt": "2024-07-14T23:00:00.000Z",
+      "modifiedAt": "2024-07-14T23:00:00.000Z",
+      "username": "user14"
+  },
+  {
       "message": "The best way to predict the future is to create it. #future",
-      "createdAt": "2024-07-15T09:00:00Z",
-      "modifiedAt": "2024-07-15T09:00:00Z"
-    }
-  ]
-  
+      "createdAt": "2024-07-15T09:00:00.000Z",
+      "modifiedAt": "2024-07-15T09:00:00.000Z",
+      "username": "user15"
+  },
+  {
+      "userId": "668aa1fe315ee666ac9d2931",
+      "message": "Hey Twwet",
+      "createdAt": "2024-07-19T20:28:18.567Z",
+      "modifiedAt": "2024-07-19T20:28:18.567Z",
+      "__v": 0,
+      "username": "user16"
+  },
+  {
+      "userId": "668aa1fe315ee666ac9d2931",
+      "message": "New Tweet on saturday",
+      "createdAt": "2024-07-20T18:08:25.892Z",
+      "modifiedAt": "2024-07-20T18:08:25.892Z",
+      "__v": 0,
+      "username": "user17"
+  },
+  {
+      "userId": "668aa1fe315ee666ac9d2931",
+      "message": "new tweet reloaded!",
+      "createdAt": "2024-07-20T18:15:33.875Z",
+      "modifiedAt": "2024-07-20T18:15:33.875Z",
+      "__v": 0,
+      "username": "user18"
+  },
+  {
+      "userId": "668aa1fe315ee666ac9d2931",
+      "message": "New Tweet XXX",
+      "createdAt": "2024-07-20T22:10:36.993Z",
+      "modifiedAt": "2024-07-20T22:10:36.993Z",
+      "__v": 0,
+      "username": "user19"
+  },
+  {
+      "userId": "668aa1fe315ee666ac9d2931",
+      "message": "Tweet!",
+      "createdAt": "2024-07-21T11:55:43.825Z",
+      "modifiedAt": "2024-07-21T11:55:43.825Z",
+      "__v": 0,
+      "username": "user20"
+  },
+  {
+      "userId": "668aa1fe315ee666ac9d2931",
+      "message": "Tweet!",
+      "createdAt": "2024-07-21T12:06:43.994Z",
+      "modifiedAt": "2024-07-21T12:06:43.994Z",
+      "__v": 0,
+      "username": "user21"
+  },
+  {
+      "userId": "668aa1fe315ee666ac9d2931",
+      "message": "Tweet2",
+      "createdAt": "2024-07-21T12:07:37.639Z",
+      "modifiedAt": "2024-07-21T12:07:37.639Z",
+      "__v": 0,
+      "username": "user22"
+  },
+  {
+      "userId": "669e87990e58890617df8345",
+      "message": "x user tweet",
+      "createdAt": "2024-07-22T16:25:00.568Z",
+      "modifiedAt": "2024-07-22T16:25:00.568Z",
+      "__v": 0,
+      "username": "user23"
+  }
+]

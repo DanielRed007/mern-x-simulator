@@ -25,6 +25,7 @@ function Dashboard() {
           <TweetCard
             key={index}
             message={tweet.message}
+            username={tweet.username}
             userId={tweet.userId}
             createdAt={tweet.createdAt}
           />

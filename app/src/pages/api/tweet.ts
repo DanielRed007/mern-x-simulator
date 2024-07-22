@@ -21,7 +21,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   } else if (req.method === "POST") {
     if (action === "send request") {
       const JWT_SECRET: string = process.env.JWT_SECRET || "";
-      const authHeader: any = req.headers.authorization;
 
       if (!token) {
         return res.status(401).json({ message: "No token provided" }); // Unauthorized

@@ -12,7 +12,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method } = req;
 
   if (method === "POST") {
-    const { email, password, action } = req.body;
+    const { email, password, username, action } = req.body;
 
     if (action === "register") {
       try {
@@ -20,6 +20,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
         const user = await UserSchema.create({
           email,
+          username,
           password: hashedPassword,
         });
 
@@ -41,6 +42,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
           return res.status(400).json({ error: "Invalid credentials" });
         }
 
+        localStorage.setItem("userId", user._id);
+        localStorage.setItem("userName", user.username);
         const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
           expiresIn: "1h",
         });

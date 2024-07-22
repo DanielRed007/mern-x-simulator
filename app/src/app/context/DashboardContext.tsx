@@ -10,6 +10,7 @@ import {
   useCallback,
 } from "react";
 import { Tweet } from "../types/tweet";
+import { filterDashboardTweets } from "@/lib/filters/users";
 
 const DashboardContext = createContext<any | null>(null);
 
@@ -18,6 +19,12 @@ interface DashboardContextProps {}
 export const DashboardProvider = ({ children }: { children: ReactNode }) => {
   const [dashboardTweetsData, setDashboardTweetsData] = useState<Tweet[]>([]);
   const [dashboardLoading, setDashboardLoading] = useState<boolean>(true);
+  const [userId, setUserId] = useState<string | null>("");
+
+  const getUserId = () => {
+    const user = localStorage.getItem("userId");
+    setUserId(user);
+  };
 
   const fetchDashboardTweetsData = useCallback(async () => {
     const response = await apiHandler({
@@ -29,7 +36,10 @@ export const DashboardProvider = ({ children }: { children: ReactNode }) => {
     try {
       if (response.ok) {
         const data = await response.json();
-        setDashboardTweetsData(data);
+
+        const filteredTweets = filterDashboardTweets(data);
+
+        setDashboardTweetsData(filteredTweets);
         setDashboardLoading(false);
       }
     } catch (error) {
@@ -39,6 +49,7 @@ export const DashboardProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     fetchDashboardTweetsData();
+    getUserId();
   }, []);
 
   const dashboardValues = {

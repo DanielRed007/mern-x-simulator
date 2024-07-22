@@ -42,8 +42,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
           return res.status(400).json({ error: "Invalid credentials" });
         }
 
-        localStorage.setItem("userId", user._id);
-        localStorage.setItem("userName", user.username);
+        // localStorage.setItem("userId", user._id);
         const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
           expiresIn: "1h",
         });

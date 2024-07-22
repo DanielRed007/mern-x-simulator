@@ -7,6 +7,11 @@ const TweetSchema = new mongoose.Schema(
       required: [false, ""],
       unique: false,
     },
+    username: {
+      type: String,
+      required: [false, ""],
+      unique: false,
+    },
     message: {
       type: String,
       required: [false, ""],

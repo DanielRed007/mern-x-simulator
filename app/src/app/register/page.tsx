@@ -9,6 +9,7 @@ import { apiHandler } from "@/lib/api/api-handler";
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -17,13 +18,16 @@ export default function Register() {
       endpoint: "/api/auth",
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      requestBody: { email, password, action: "register" },
+      requestBody: { email, password, username, action: "register" },
     });
 
     const data = await response.json();
 
     if (response.ok) {
       alert("Registration successful");
+      setEmail("");
+      setPassword("");
+      setUsername("");
     } else {
       alert(data.error);
     }
@@ -36,7 +40,9 @@ export default function Register() {
         <RegisterForm
           email={email}
           password={password}
+          username={username}
           setEmail={setEmail}
+          setUsername={setUsername}
           setPassword={setPassword}
           handleSubmit={handleSubmit}
         />

@@ -10,11 +10,6 @@ import { TweetCard } from "../components/TweetCard";
 function Dashboard() {
   const { dashboardTweetsData, dashboardLoading } = useDashboard();
 
-  const [tweets, setTweets] = useState([
-    { id: 1, content: "This is the first tweet!" },
-    { id: 2, content: "This is the second tweet!" },
-  ]);
-
   useEffect(() => {}, []);
 
   if (dashboardLoading) {

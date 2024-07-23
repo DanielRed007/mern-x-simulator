@@ -4,6 +4,7 @@ import connectToDatabase from "@/lib/mongoose";
 import TweetSchema from "../../models/tweet";
 import UserSchema from "../../models/user";
 import jwt from "jsonwebtoken";
+import { getJwtSecret } from "@/lib/auth";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   await connectToDatabase();
@@ -20,13 +21,13 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     }
   } else if (req.method === "POST") {
     if (action === "send request") {
-      const JWT_SECRET: string = process.env.JWT_SECRET || "";
+      const secret = getJwtSecret();
 
       if (!token) {
         return res.status(401).json({ message: "No token provided" }); // Unauthorized
       }
 
-      const decoded: any = jwt.verify(token, JWT_SECRET);
+      const decoded: any = jwt.verify(token, secret);
       const userId: any = decoded.userId;
 
       const user = await UserSchema.findById(userId);

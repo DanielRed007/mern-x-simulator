@@ -41,7 +41,7 @@ export default function HomePage() {
             <div className='flex mx-auto justify-center mt-7'>
               {homeBannerProfiles.length > 0 ? (
                 homeBannerProfiles.map((profile: any, index: any) => (
-                  <ProfileCard profile={profile} />
+                  <ProfileCard key={index} profile={profile} />
                 ))
               ) : (
                 <Loader />

@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import jwt from "jsonwebtoken";
-
-const JWT_SECRET = "the_secrets_that_you_keep_when_you_talking_in_your_sleep"; // Replace with your actual secret
+import { getJwtSecret } from "@/lib/auth";
 
 const withAuth = (WrappedComponent: any) => {
   return (props: any) => {
     const router = useRouter();
+    const secret = getJwtSecret();
 
     useEffect(() => {
       const token = localStorage.getItem("token");
@@ -17,7 +17,7 @@ const withAuth = (WrappedComponent: any) => {
       }
 
       try {
-        jwt.verify(token, JWT_SECRET);
+        jwt.verify(token, secret);
       } catch (error) {
         console.log({ error });
         router.push("/login");

@@ -3,11 +3,11 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import connectToDatabase from "../../lib/mongoose";
 import UserSchema from "../../models/user";
-
-const JWT_SECRET: string = process.env.JWT_SECRET || "";
+import { getJwtSecret } from "@/lib/auth";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   await connectToDatabase();
+  const secret = getJwtSecret();
 
   const { method } = req;
 
@@ -42,8 +42,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
           return res.status(400).json({ error: "Invalid credentials" });
         }
 
-        // localStorage.setItem("userId", user._id);
-        const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
+        const token = jwt.sign({ userId: user._id }, secret, {
           expiresIn: "1h",
         });
 

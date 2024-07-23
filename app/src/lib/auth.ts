@@ -5,13 +5,20 @@ export interface CustomPayload extends JwtPayload {
   userId: string;
 }
 
-const JWT_SECRET: string = process.env.JWT_SECRET || "";
-
 export function verifyToken(token: string): any {
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const secret = getJwtSecret();
+    const decoded = jwt.verify(token, secret);
     return decoded;
   } catch (error) {
     throw new Error("Invalid token");
   }
+}
+
+export function getJwtSecret(): string {
+  const secret = process.env.JWT_SECRET;
+  if (!secret) {
+    throw new Error("JWT_SECRET environment variable is not defined");
+  }
+  return secret;
 }

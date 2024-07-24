@@ -27,19 +27,22 @@ export const DashboardProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const fetchDashboardTweetsData = useCallback(async () => {
+    const token = localStorage.getItem("token");
+
     const response = await apiHandler({
       endpoint: "/api/tweet",
       method: "GET",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     });
 
     try {
       if (response.ok) {
         const data = await response.json();
 
-        const filteredTweets = filterDashboardTweets(data, userId);
-
-        setDashboardTweetsData(filteredTweets);
+        setDashboardTweetsData(data);
         setDashboardLoading(false);
       }
     } catch (error) {

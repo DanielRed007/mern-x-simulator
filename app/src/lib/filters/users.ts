@@ -4,6 +4,9 @@ export const filterDashboardTweets = (
   tweets: Tweet[],
   userId: string | null
 ): Tweet[] => {
-  console.log({ tweets, userId });
-  return tweets;
+  if (!userId) {
+    return tweets;
+  }
+
+  return tweets.reverse();
 };

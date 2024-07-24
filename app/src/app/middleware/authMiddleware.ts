@@ -1,9 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { verifyToken } from "@/lib/auth";
-
-interface AuthRequest extends NextApiRequest {
-  user: any;
-}
+import { AuthRequest } from "../types/request";
 
 export function authMiddleware(handler: any) {
   return async (req: AuthRequest, res: NextApiResponse) => {

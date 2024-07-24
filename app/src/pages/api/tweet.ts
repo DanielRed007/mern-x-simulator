@@ -5,24 +5,32 @@ import TweetSchema from "../../models/tweet";
 import UserSchema from "../../models/user";
 import jwt from "jsonwebtoken";
 import { getJwtSecret } from "@/lib/auth";
+import { AuthRequest } from "@/app/types/request";
+import { filterDashboardTweets } from "@/lib/filters/users";
 
-async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: AuthRequest, res: NextApiResponse) {
   await connectToDatabase();
+
+  const secret = getJwtSecret();
 
   const { token, newTweet, action } = req.body;
 
   if (req.method === "GET") {
+    const token: any = req.headers.authorization?.split(" ")[1];
+    const decoded: any = jwt.verify(token, secret);
+    const userId: any = decoded.userId;
+
     const tweets: Tweet[] = await TweetSchema.find();
 
-    if (tweets) {
+    const filteredTweets = filterDashboardTweets(tweets, userId);
+
+    if (filteredTweets) {
       res.status(200).json(tweets);
     } else {
       res.status(404).json({ msg: "No Tweets Found" });
     }
   } else if (req.method === "POST") {
     if (action === "send request") {
-      const secret = getJwtSecret();
-
       if (!token) {
         return res.status(401).json({ message: "No token provided" }); // Unauthorized
       }

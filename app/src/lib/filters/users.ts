@@ -8,5 +8,13 @@ export const filterDashboardTweets = (
     return tweets;
   }
 
-  return tweets.reverse();
+  return tweets.sort((a, b) => {
+    if (a.userId === userId && b.userId !== userId) {
+      return -1;
+    } else if (a.userId !== userId && b.userId === userId) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
 };

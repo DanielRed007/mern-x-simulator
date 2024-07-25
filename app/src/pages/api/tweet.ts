@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
 import { getJwtSecret } from "@/lib/auth";
 import { AuthRequest } from "@/app/types/request";
 import { filterDashboardTweets } from "@/lib/filters/users";
+import { tweetsByUserIdQuery } from "../db/queries/tweets";
 
 async function handler(req: AuthRequest, res: NextApiResponse) {
   await connectToDatabase();
@@ -20,11 +21,11 @@ async function handler(req: AuthRequest, res: NextApiResponse) {
     const decoded: any = jwt.verify(token, secret);
     const userId: any = decoded.userId;
 
-    const tweets: Tweet[] = await TweetSchema.find();
+    const tweetsQuery = tweetsByUserIdQuery(userId);
 
-    const filteredTweets = filterDashboardTweets(tweets, userId);
+    const tweets: Tweet[] = await TweetSchema.aggregate(tweetsQuery);
 
-    if (filteredTweets) {
+    if (tweets) {
       res.status(200).json(tweets);
     } else {
       res.status(404).json({ msg: "No Tweets Found" });
